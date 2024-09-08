@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import Buttons from '../components/Buttons'
 import ImgContainer from '../components/ImgContainer';
@@ -49,13 +50,13 @@ const GalleryPage = () => {
                 openModal={modal}
                 closeModal={() => setModal(false)}
             >
-                <img
+                <Image
                     src={modalImg}
                     alt={`image`}
                     sizes="(min-width: 1420px) 272px, (min-width: 1080px) calc(5.63vw + 193px), (min-width: 800px) calc(33.08vw - 14px), (min-width: 540px) calc(50vw - 16px), calc(100vw - 16px)"
                     className=" object-cover group-hover:opacity-75"
                 />
-                <img loading="lazy" className="h-auto w-auto max-w-full max-h-[90dvh] rounded-xl " src={modalImg} alt="" />
+                {/* <img loading="lazy" className="h-auto w-auto max-w-full max-h-[90dvh] rounded-xl " src={modalImg} alt="" /> */}
             </Modal>
             <div className='gallery-buttons flex items-center justify-start md:justify-center py-4 px-4 overflow-x-scroll'>
                 {allFilters.map((item) => (

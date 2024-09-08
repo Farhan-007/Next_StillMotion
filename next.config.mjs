@@ -7,7 +7,13 @@ const nextConfig = {
                 hostname: "ik.imagekit.io",
                 port: '',
                 pathname: '/Farhan007/StillMotion-ImageServer/**'
-            }
+            },
+             {
+                protocol: "https",
+                hostname: "images.unsplash.com",
+                port: "",
+                pathname: "**"
+             }
         ]
     }
 };
