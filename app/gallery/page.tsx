@@ -10,7 +10,7 @@ const GalleryPage = () => {
 
     // galleryData
     const allFilters = ["All", "ethnic", "fashion", "catalogue", "portrait", "pre-wedding", "wedding"]
-    const [selectedFilter, setSelectedFilter] = useState(allFilters[0])
+    const [selectedFilter, setSelectedFilter] = useState(allFilters[1])
     const [data, setData] = useState(Images);
 
     // buttons
