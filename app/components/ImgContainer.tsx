@@ -11,7 +11,7 @@ type Props = {
 
 export default function ImgContainer({ photo }: Props) {
     return (
-        <div key={photo.id} className=" h-[26rem] rounded-xl overflow-hidden relative group">
+        <div key={photo.id} className=" h-[15rem] md:h-[30rem] w-[10rem] md:w-[17rem] rounded-xl overflow-hidden relative group">
             <Image
                 src={`https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${photo.id}).jpg`}
                 alt={`image-${photo.title}${photo.id}`}

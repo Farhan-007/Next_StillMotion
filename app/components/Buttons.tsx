@@ -8,8 +8,8 @@ const Buttons = (props: { onChange: (arg0: any) => void; id: string | number | b
 
     return (
         <button
-            onClick={() => handleClick(props.id)}
-            className={`category-button ${props.active === props.id ? "active" : ""}`}
+            onClick={() => { props.id == props.active? null : handleClick(props.id)}}
+            className={`btn rounded-2xl ${props.active === props.id ? "active btn-accent" : "btn-outline "}`}
         >
             {props.id}
         </button>

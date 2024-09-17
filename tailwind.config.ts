@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui"
 
 const config: Config = {
   content: [
@@ -16,9 +17,13 @@ const config: Config = {
       },
       gridTemplateColumns: {
         "gallery": "repeat( auto-fit, minmax(250px, 1fr) )",
+        "smgallery": "repeat( auto-fit, minmax(4rem, 1fr) )",
+
       },
     },
   },
-  plugins: [],
+  plugins: [
+    daisyui,
+  ],
 };
 export default config;

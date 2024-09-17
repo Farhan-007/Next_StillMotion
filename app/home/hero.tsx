@@ -8,14 +8,14 @@ function Hero() {
             <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20 ">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1542850016-09be38350dd4?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Model in Dark Background"
-                        fill={true}
-                        sizes="(min-width: 1420px) 272px, (min-width: 1080px) calc(5.63vw + 193px), (min-width: 800px) calc(33.08vw - 14px), (min-width: 540px) calc(50vw - 16px), calc(100vw - 16px)"
-                        priority={true}
-                        className="object-cover w-full h-full"
-                    />
+                    {/*<Image*/}
+                    {/*    src="https://images.unsplash.com/photo-1542850016-09be38350dd4?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"*/}
+                    {/*    alt="Model in Dark Background"*/}
+                    {/*    fill={true}*/}
+                    {/*    sizes="(min-width: 1420px) 272px, (min-width: 1080px) calc(5.63vw + 193px), (min-width: 800px) calc(33.08vw - 14px), (min-width: 540px) calc(50vw - 16px), calc(100vw - 16px)"*/}
+                    {/*    priority={true}*/}
+                    {/*    className="object-cover w-full h-full"*/}
+                    {/*/>*/}
                 </div>
 
                 {/* Hero Content */}

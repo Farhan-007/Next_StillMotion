@@ -5,7 +5,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className="navbar border-b border-[#333333] w-full fixed top-0 left-0 z-20 py-2 md:px-20 lg:px-32 bg-[#000000] ">
+            <nav className=" border-b border-[#333333] w-full fixed top-0 left-0 z-20 py-2 md:px-20 lg:px-32 bg-[#000000] ">
                 <div className=" flex flex-wrap items-center justify-between p-4 py-4 rounded-2xl text-white">
                     <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" /> */}

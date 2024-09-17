@@ -12,8 +12,8 @@ function HomePage() {
             <Hero />
             <Feature />
             <Category />
-            {/* <Team /> */}
-            {/* <Contact /> */}
+            {/*<Team />*/}
+            {/*<Contact />*/}
 
             
 
