@@ -11,7 +11,7 @@ function Feature() {
         <section id="features" className="py-16 bg-black">
             <div className="container mx-auto px-8 text-center">
                 <h2 className="text-4xl font-bold text-white mb-12 ">
-                    Our Features
+                    Our Features 
                 </h2>
                 <div className="flex md:flex-col flex-wrap justify-center md:items-center gap-8 md:gap-20 ">
                     {data.map((e, idx) => {
