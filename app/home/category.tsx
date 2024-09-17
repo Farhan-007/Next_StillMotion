@@ -28,12 +28,10 @@ const CategorySection = () => {
       </div>
       <div className="flex items-center gap-6 py-5 px-0 md:px-8 overflow-y-scroll no-scrollbar">
         {categories.map((item, idx) => (
-          <div key={idx} className="relative min-h-[70vh] min-w-[15rem] aspect-[2/3] transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg overflow-hidden">
-            <ImgContainer photo={item}/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70">
-              <div className="absolute bottom-[80px] w-full p-4 text-center">
-                <h3 className="text-xl font-bold text-white drop-shadow-md">{item.title}</h3>
-              </div>
+          <div key={idx} className="relative md:min-h-[70vh] min-w-max transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg overflow-hidden">
+            <ImgContainer photo={item} />
+            <div className="absolute bottom-0 left-0 right-0 md:bottom-[40px] p-4 text-center">
+              <h3 className="text-xl font-bold text-white drop-shadow-md">{item.title}</h3>
             </div>
           </div>
         ))}
