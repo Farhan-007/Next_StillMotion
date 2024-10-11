@@ -18,8 +18,6 @@ function HomePage() {
             <Category />
             {/* <Team /> */}
             <Contact />
-
-
         </>
     )
 }
