@@ -15,7 +15,7 @@ function Team() {
                         <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
                     </div>
                     <div className="grid gap-8 lg:gap-16 md:grid-cols-3">
-
+                    {/*  */}
                         {myTeam.map((i, idx) => {
                             return (
                                 <div key={idx} className="text-center text-gray-500 dark:text-gray-400">
