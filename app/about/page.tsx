@@ -6,7 +6,7 @@ function About() {
     return (
         <section className=" py-16 px-8 md:px-20">
             <section className="bg-black text-white">
-                <div className="px-4 min-h-screen flex flex-col items-center justify-center text-center gap-5">
+                <div className="px-4 min-h-[80vh] flex flex-col items-center justify-center text-center gap-5">
                     <h2 className="mb-4 text-5xl font-extrabold tracking-tight">About Us</h2>
                     <p className="mb-8 font-light text-gray-400 sm:text-xl">
                         We are a dedicated team of photographers capturing the world through our lens. Our mission is to tell stories and create lasting memories through stunning visuals.
