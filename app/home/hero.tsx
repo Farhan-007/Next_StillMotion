@@ -24,7 +24,8 @@ function Hero() {
                 {/* Hero Content */}
                 <div className="flex flex-col items-center gap-4 relative z-1 text-center max-w-[20rem] md:max-w-max p-6 md:p-12 lg:p-24">
                     <p className=" md:max-w-xl md:text-xl lg:text-2xl font-semibold text-[#ebebeb]">Still Motion Pictures</p>
-                    <h1 className="md:max-w-2xl  mb-8 font-bold tracking-tight leading-none bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[#707070] bg-clip-text text-3xl md:text-6xl text-white">Capture Moments That Last a Life Time</h1>
+                    <h1 className="md:max-w-2xl  mb-8 font-bold tracking-tight leading-none text-3xl md:text-6xl text-white">Capture Moments That Last a Life Time</h1>
+                    {/* <h1 className="md:max-w-2xl  mb-8 font-bold tracking-tight leading-none bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[#707070] bg-clip-text text-3xl md:text-6xl text-white">Capture Moments That Last a Life Time</h1> */}
                     <div className='flex justify-center items-center md:flex-row gap-4'>
                         <Link
                             href="gallery"
