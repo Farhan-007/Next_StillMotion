@@ -43,7 +43,7 @@ const Services: React.FC = () => {
                 {/* <h2 className='text-2xl sm:text-4xl font-bold text-white'>High-Quality Images</h2> */}
             
             <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10 text-white">Our Services</h2>
-            <div className="grid gap-8 grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {servicesData.map((service, index) => (
                     <div
                         key={index}
