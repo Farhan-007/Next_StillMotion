@@ -16,11 +16,6 @@ const GalleryPage = () => {
     const [selectedFilter, setSelectedFilter] = useState(allFilters[1])
     const [data, setData] = useState(Images);
 
-    // buttons
-    // function activeButton(value: React.SetStateAction<string>) {
-    //     setSelectedFilter(value)
-    // }
-
     // Modal 
     const [modal, setModal] = useState(false);
     const [modalImg, setModalImg] = useState('');
@@ -75,11 +70,13 @@ const GalleryPage = () => {
             {/* <img loading="lazy" className="h-auto max-w-full rounded-lg" src={`https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/tr:w-300/(0).jpg`} alt={`image-0`} /> */}
             <div className=" flex flex-wrap justify-center items-center gap-4 px-2 my-3 grid-cols-gallery">
                 {isLoading ? <LoadingComp /> : data.map((item) => (
-                    <div key={item.id} onClick={() => { console.log(item.id); openModalWithImage(item.id) }}>
-                        <ImgContainer
-                            photo={item}
-                        />
-                    </div>
+                    <ImgContainer
+                        key={item.id}
+                        photo={item}
+                        Click={() => { console.log(item.id); openModalWithImage(item.id) }}
+                    />
+                    // <div key={item.id} onClick={() => { console.log(item.id); openModalWithImage(item.id) }}>
+                    // </div>
                 ))}
             </div>
 
@@ -100,3 +97,27 @@ function LoadingComp() {
         ))}
     </>
 }
+
+// function ImageGallery() {
+//     const [data, setData] = useState(Images);
+//     // Modal 
+//     const [modal, setModal] = useState(false);
+//     const [modalImg, setModalImg] = useState('');
+
+//     const openModalWithImage = useCallback((imageUrl: string) => {
+//         setModalImg(imageUrl);
+//         setModal(true);
+//         console.log(imageUrl)
+//     }, []);
+//     return (
+//         <>
+//             {data.map((item) => (
+//                 <div key={item.id} onClick={() => { console.log(item.id); openModalWithImage(item.id) }}>
+//                     <ImgContainer
+//                         photo={item}
+//                     />
+//                 </div>
+//             ))}
+//         </>
+//     )
+// }

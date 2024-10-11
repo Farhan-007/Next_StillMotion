@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactPop from "./components/ContactPop";
 // import ContactPop from "./components/ContactPop";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="max-w-6xl mx-auto">
+        <main className="mx-auto">
             <Navbar />
             {children}
             {/* <ContactPop /> */}
@@ -27,3 +28,4 @@ export default function RootLayout({
     </html>
   );
 }
+// max-w-6xl

@@ -32,9 +32,9 @@ function Navbar() {
                                 <li>
                                     <Link href={'/about'}><p className="mr-5 hover:text-[#a855f7]">About</p></Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link href={'/projects'}><p className="mr-5 hover:text-[#a855f7]">Projects</p></Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link href={'/gallery'}><p className="mr-5 hover:text-[#a855f7]">Gallery</p></Link>
                                 </li>
@@ -60,9 +60,9 @@ function Navbar() {
                             <li>
                                 <Link href={'/about'}><p className="mr-5 hover:text-[#a855f7]">About</p></Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href={'/projects'}><p className="mr-5 hover:text-[#a855f7]">Projects</p></Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link href={'/gallery'}><p className="mr-5 hover:text-[#a855f7]">Gallery</p></Link>
                             </li>
