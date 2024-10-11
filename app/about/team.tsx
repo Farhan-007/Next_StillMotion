@@ -19,7 +19,7 @@ function Team() {
                         {myTeam.map((i, idx) => {
                             return (
                                 <div key={idx} className="text-center text-gray-500 dark:text-gray-400">
-                                    <img className="mx-auto mb-4 w-36 h-36 rounded-full" src={i.img} alt={i.title} />
+                                    <img className="mx-auto mb-4 w-36 h-36 rounded-full object-cover" src={i.img} alt={i.title} />
                                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         <a href="https://www.google.com/">{i.title}</a>
                                     </h3>
