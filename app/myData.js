@@ -99,7 +99,7 @@ export const myTeam = [
         tags: ["writer", "director"],
         social: ["insta", "fb"],
         img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Rahul.jpg",
-    }
+    },
     {
         id: 5,
         title: "Mohammed Fazil",
