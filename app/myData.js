@@ -77,25 +77,29 @@ export const myTeam = [
         title: "Rahil khan",
         tags: ["CEO StillMotion", "film maker", "photographer"],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Rahil.jpg",
     },
     {
         id: 2,
         title: "Shivanshu swarnkar",
         tags: ["cinematographer", "BMD certified colorist", "editor"],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Shivanshu.jpg",
     },
     {
         id: 3,
         title: "Utkarsh gupta",
         tags: ["aspiring cinematographer", "film maker"],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Utkarsh.jpg",
     },
     {
         id: 4,
         title: "Rahul Jaiswal",
         tags: ["writer", "director"],
         social: ["insta", "fb"],
-    },
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Rahul.jpg",
+    }
     {
         id: 5,
         title: "Mohammed Fazil",
@@ -107,23 +111,27 @@ export const myTeam = [
         title: "Manas bhattacharya",
         tags: ["social media analyst",],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Manas.jpg",
     },
     {
         id: 7,
         title: "Farhan Akhter",
         tags: ["Web developer",],
         social: ["insta", "fb", "github"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Farhan.jpg",
     },
     {
         id: 8,
         title: "Rahul Sharma",
         tags: ["graphic designer", "video editor"],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/RahulS.jpg",
     },
     {
         id: 9,
         title: "Sharik khan",
         tags: ["graphic designer", "UI/UX designer"],
         social: ["insta", "fb"],
+        img: "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/TeamImages/Sharik.jpg",
     },
 ];
