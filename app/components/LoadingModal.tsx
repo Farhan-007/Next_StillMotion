@@ -9,8 +9,8 @@ const LoadingModal: React.FC<LoadingModalProps> = ({ isLoading }) => {
     if (!isLoading) return null; // Don't render the modal if not loading
 
     return (
-        <div style={styles.overlay}>
-            <div style={styles.spinner}></div>
+        <div className="overlay">
+            <div className="spinner"></div>
         </div>
     );
 };
