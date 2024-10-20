@@ -201,7 +201,7 @@ export const Images = [
     { "id": "205", "title": "portrait", "src": "assets/ImgList/(205).jpg" },
     { "id": "206", "title": "portrait", "src": "assets/ImgList/(206).jpg" },
     { "id": "207", "title": "portrait", "src": "assets/ImgList/(207).jpg" },
-    { "id": "208", "title": "portrait", "src": "assets/ImgList/(208).jpg" },
+    // { "id": "208", "title": "portrait", "src": "assets/ImgList/(208).jpg" },
     { "id": "209", "title": "portrait", "src": "assets/ImgList/(209).jpg" },
     { "id": "210", "title": "portrait", "src": "assets/ImgList/(210).jpg" },
     { "id": "211", "title": "portrait", "src": "assets/ImgList/(211).jpg" },
