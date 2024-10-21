@@ -55,6 +55,7 @@ const Contact: React.FC = () => {
             if (!validateForm()) return;
 
             setIsLoading(true);
+            await new Promise((resolve) => setTimeout(resolve, 2000));              
             setSubmitMessage("");
 
             if (form) {
