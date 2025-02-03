@@ -8,13 +8,17 @@ import React, {
   Suspense,
   FC,
 } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import ImgContainer from "../components/ImgContainer";
 import Buttons from "../components/Buttons";
 import Modal from "../components/Modal";
 import { Images } from "../Images";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 // --- Main Gallery Content Component ---
+
+
+
 const GalleryPageContent: FC = () => {
   // loading state
   const [isLoading, setLoading] = useState(true);
@@ -38,17 +42,37 @@ const GalleryPageContent: FC = () => {
 
   // Modal state
   const [modal, setModal] = useState(false);
-  const [modalImg, setModalImg] = useState<string>("0");
+  const [modalImg, setModalImg] = useState<string>("");
 
+  const router = useRouter();
   const searchParams = useSearchParams();
 
+  // Function to update filter and URL
+  const updateFilter = useCallback((filter: string) => {
+    setSelectedFilter(filter);
+    setLoading(true);
+
+    // Update URL query parameters
+    const params = new URLSearchParams(searchParams.toString());
+    if (filter === "All") {
+      params.delete("filter"); // Remove filter param if "All" is selected
+    } else {
+      params.set("filter", filter);
+    }
+
+    router.push(`/gallery?${params.toString()}`, { scroll: false });
+  }, [searchParams, router]);
+
   // When GalleryPage loads, check for filter query parameter
+  // Update filter state when URL changes
   useEffect(() => {
     const filterFromUrl = searchParams.get("filter");
     if (filterFromUrl && allFilters.includes(filterFromUrl)) {
       setSelectedFilter(filterFromUrl);
+    } else {
+      setSelectedFilter("All");
     }
-  }, [searchParams, allFilters]);
+  }, [searchParams]);
 
   // Filter items based on selected filter
   const filterItems = useCallback((): void => {
@@ -62,7 +86,7 @@ const GalleryPageContent: FC = () => {
     }
     setVisibleCount(INITIAL_VISIBLE_COUNT);
     setLoading(false);
-  }, [selectedFilter]);
+  }, [selectedFilter, allFilters]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -126,7 +150,7 @@ const GalleryPageContent: FC = () => {
       <div className="gallery-buttons flex items-center justify-start md:justify-center py-4 px-4 gap-2 overflow-x-scroll">
         {allFilters.map((item) => (
           <Buttons
-            onChange={activeButton}
+            onChange={() => updateFilter(item)}
             active={selectedFilter}
             id={item}
             key={item}
