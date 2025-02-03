@@ -61,7 +61,7 @@ const GalleryPageContent: FC = () => {
     }
 
     router.push(`/gallery?${params.toString()}`, { scroll: false });
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   // When GalleryPage loads, check for filter query parameter
   // Update filter state when URL changes
@@ -86,7 +86,7 @@ const GalleryPageContent: FC = () => {
     }
     setVisibleCount(INITIAL_VISIBLE_COUNT);
     setLoading(false);
-  }, [selectedFilter, allFilters]);
+  }, [selectedFilter]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
