@@ -1,9 +1,9 @@
 import React from 'react'
 import Category from './category'
 import Contact from './contact'
-import Feature from './feature'
 import Hero from './hero'
 import Services from './services'
+import { Feature } from './feature'
 
 
 function HomePage() {

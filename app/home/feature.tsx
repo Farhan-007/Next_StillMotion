@@ -1,98 +1,69 @@
+// components/feature.tsx
 "use client";
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { GlassCard } from "../components/ui/GlassCard";
 
-const Feature: React.FC = () => {
-  const sliderRef1 = useRef<HTMLDivElement | null>(null);
-  const sliderRef2 = useRef<HTMLDivElement | null>(null);
-  const [scrollPos, setScrollPos] = useState(0);
+const imagesLand1 = [
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(289).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(4).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(26).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(285).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(165).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(120).jpg",
+];
+const imagesLand2 = [
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(289).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(4).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(26).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(285).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(120).jpg",
+  "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(29).jpg",
+];
 
-  const imagesLand1 = [
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(289).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(4).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(26).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(285).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(165).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(120).jpg",
-  ];
-  const imagesLand2 = [
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(289).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(4).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(26).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(285).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(120).jpg",
-    "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(29).jpg",
-  ];
+export const Feature = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPos(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
 
   return (
-    <section id="features" className="py-16 px-6 md:px-20 lg:px-32 flex flex-col bg-black">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-12 gap-2 sm:gap-0">
-        <h3 className="text-2xl sm:text-4xl font-bold text-white">High-Quality Images</h3>
-        <p className="text-gray-600 text-sm md:text-lg lg:text-xl">
-          Get crystal-clear and vibrant images that capture every detail
-        </p>
-      </div>
-      <div className="flex flex-col gap-6">
-        {/* First Slider (scrolls right) */}
-        <div
-          ref={sliderRef1}
-          className="flex gap-6 overflow-x-hidden rounded-2xl h-64 sm:h-80"
+    <section ref={ref} className="relative h-[300vh] bg-gradient-to-b from-black to-blue-900/20">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <motion.div style={{ y, opacity }} className="absolute inset-0">
+          <div className="flex h-full gap-4 items-center">
+            {[...Array(6)].map((_, i) => (
+              <GlassCard key={i} className="w-[40vw] h-[60vh] rounded-3xl">
+                <motion.img
+                  src={imagesLand1[i]}
+                  className="w-full h-full object-cover rounded-3xl"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                />
+              </GlassCard>
+            ))}
+          </div>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
         >
-          {imagesLand1.map((src, index) => (
-            <Image
-              key={index}
-              className="w-[400px] object-cover rounded-2xl"
-              width={400}
-              height={100}
-              style={{ transform: `translateX(-${scrollPos * 0.5}px)` }}
-              src={src}
-              alt={`High-quality image ${index}`}
-            />
-          ))}
-        </div>
-        {/* Second Slider (scrolls left)
-        <div
-          ref={sliderRef2}
-          className="flex gap-3 sm:gap-6 overflow-x-hidden rounded-2xl h-[12rem] sm:h-[15rem]"
-        >
-          {imagesLand2.map((src, index) => (
-            <img
-              key={index + imagesLand2.length}
-              className="w-[400px] object-cover rounded-2xl"
-              style={{ transform: `translateX(${(scrollPos - 3216) * 0.5}px)` }}
-              src={src}
-              alt={`High-quality image ${index + imagesLand2.length}`}
-            />
-          ))}
-        </div> */}
-
-        {/* Slider Two */}
-        <div
-          ref={sliderRef2}
-          className="flex gap-6 overflow-x-hidden rounded-2xl h-64 sm:h-80"
-        >
-          {imagesLand2.map((src, index) => (
-            <img
-              key={index + imagesLand2.length}
-              className="w-[400px] object-cover rounded-2xl "
-              style={{ transform: `translateX(${(scrollPos - 3216) * 0.5}px)` }}
-              src={src}
-              alt={`Process image ${index + imagesLand2.length}`}
-            />
-          ))}
-        </div>
+          <h3 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+            Visual Storytelling Mastery
+          </h3>
+          <p className="text-xl text-gray-300 max-w-2xl">
+            Immersive imagery that transcends traditional photography
+          </p>
+        </motion.div>
       </div>
     </section>
   );
 };
-
-export default Feature;
