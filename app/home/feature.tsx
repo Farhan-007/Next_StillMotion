@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 const Feature: React.FC = () => {
@@ -47,9 +48,11 @@ const Feature: React.FC = () => {
           className="flex gap-6 overflow-x-hidden rounded-2xl h-64 sm:h-80"
         >
           {imagesLand1.map((src, index) => (
-            <img
+            <Image
               key={index}
               className="w-[400px] object-cover rounded-2xl"
+              width={400}
+              height={100}
               style={{ transform: `translateX(-${scrollPos * 0.5}px)` }}
               src={src}
               alt={`High-quality image ${index}`}
