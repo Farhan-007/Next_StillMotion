@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import ImageSlider from '../components/ImageSlider'
+import ImageSlider from '../_components/ImageSlider'
 
 const images = [
     "https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(4).jpg",

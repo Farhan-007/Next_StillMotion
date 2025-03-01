@@ -9,9 +9,9 @@ import React, {
   FC,
 } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import ImgContainer from "../components/ImgContainer";
-import Buttons from "../components/Buttons";
-import Modal from "../components/Modal";
+import ImgContainer from "../_components/ImgContainer";
+import Buttons from "../_components/Buttons";
+import Modal from "../_components/Modal";
 import { Images } from "../Images";
 // import { useSearchParams } from "next/navigation";
 

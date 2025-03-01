@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
-import LoadingModal from '../components/LoadingModal';
+import LoadingModal from '../_components/LoadingModal';
 
 const Contact: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

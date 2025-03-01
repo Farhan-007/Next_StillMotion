@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import ContactPop from "./components/ContactPop";
+import ContactPop from "./_components/ContactPop";
 // import ContactPop from "./components/ContactPop";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "./_components/Footer";
+import Navbar from "./_components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {

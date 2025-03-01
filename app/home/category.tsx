@@ -65,7 +65,7 @@
 
 "use client";
 import React, { useEffect, useState } from 'react';
-import ImgContainer from '../components/ImgContainer';
+import ImgContainer from '../_components/ImgContainer';
 import { allFilters } from "../myData";
 import { Images } from '../Images';
 import Link from 'next/link';
