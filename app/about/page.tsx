@@ -98,7 +98,7 @@ const About: React.FC = () => {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Journey</h2>
                     <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                        Founded in 2015 by award-winning photographer Jane Smith, Lumina Studios has evolved from a passionate solo venture into a collective of creative professionals. We have captured over 500+ events, creating timeless imagery for clients worldwide.
+                        Founded in 2020 by photographer Rahil Khan, StillMotion Pictures has evolved from a passionate solo venture into a collective of creative professionals. We have captured over 50+ events, creating timeless imagery for clients worldwide.
                     </p>
                 </div>
 
