@@ -200,7 +200,7 @@ const About: React.FC = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <a
-                            href="/contact"
+                            href="/#contact"
                             className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-900 transition-colors flex items-center gap-2"
                         >
                             Schedule Consultation
