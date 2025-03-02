@@ -49,7 +49,13 @@ function Modal({ openModal, closeModal, modalImg }: ModalProps) {
             <dialog open={openModal} className="modal">
                 <div className="modal-box p-0 ">
                     {/* Display the image passed via props */}
-                    <img src={modalImg} alt="Modal Content" className="modal-image " />
+                    <Image
+                        src={modalImg}
+                        alt="Modal Content"
+                        fill={true}
+                        sizes="(min-width: 1420px) 272px, (min-width: 1080px) calc(5.63vw + 193px), (min-width: 800px) calc(33.08vw - 14px), (min-width: 540px) calc(50vw - 16px), calc(100vw - 16px)"
+                        priority={true}
+                        className="modal-image " />
                 </div>
                 <form method="dialog" className="modal-backdrop bg-[#0000004d]" onSubmit={(e) => {
                     e.preventDefault(); // Prevent default form submission

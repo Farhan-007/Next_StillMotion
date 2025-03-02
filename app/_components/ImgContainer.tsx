@@ -6,15 +6,17 @@ type Props = {
         src: string,
         title: string,
     },
+    classString: string
     Click: () => void; // Add onClick prop
+    
 }
 
-export default function ImgContainer({ photo, Click }: Props) {
+export default function ImgContainer({ photo, classString, Click }: Props) {
     return (
         <div
             key={photo.id}
             onClick={Click}
-            className=" h-[15rem] md:h-[30rem] w-[10rem] md:w-[17rem] rounded-xl overflow-hidden relative group"
+            className={ ` ${classString} rounded md:rounded-xl overflow-hidden relative group`}
         >
             <Image
                 src={`https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${photo.id}).jpg`}

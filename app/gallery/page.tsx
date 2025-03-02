@@ -13,26 +13,23 @@ import ImgContainer from "../_components/ImgContainer";
 import Buttons from "../_components/Buttons";
 import Modal from "../_components/Modal";
 import { Images } from "../Images";
-// import { useSearchParams } from "next/navigation";
 
-// --- Main Gallery Content Component ---
-
-
+// Define constant filters outside the component for stability.
+const ALL_FILTERS: string[] = [
+  "All",
+  "ethnic",
+  "fashion",
+  "catalogue",
+  "portrait",
+  "pre-wedding",
+  "wedding",
+];
 
 const GalleryPageContent: FC = () => {
   // loading state
   const [isLoading, setLoading] = useState(true);
   // galleryData
-  const allFilters: string[] = [
-    "All",
-    "ethnic",
-    "fashion",
-    "catalogue",
-    "portrait",
-    "pre-wedding",
-    "wedding",
-  ];
-  const [selectedFilter, setSelectedFilter] = useState<string>(allFilters[1]);
+  const [selectedFilter, setSelectedFilter] = useState<string>(ALL_FILTERS[1]);
   const [data, setData] = useState(Images);
 
   // Infinite scroll: visible images count
@@ -47,36 +44,35 @@ const GalleryPageContent: FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Function to update filter and URL
-  const updateFilter = useCallback((filter: string) => {
-    setSelectedFilter(filter);
-    setLoading(true);
+  // Function to update filter and URL; include router in deps.
+  const updateFilter = useCallback(
+    (filter: string) => {
+      setSelectedFilter(filter);
+      setLoading(true);
+      const params = new URLSearchParams(searchParams.toString());
+      if (filter === "All") {
+        params.delete("filter"); // Remove filter param if "All" is selected
+      } else {
+        params.set("filter", filter);
+      }
+      router.push(`/gallery?${params.toString()}`, { scroll: false });
+    },
+    [searchParams, router]
+  );
 
-    // Update URL query parameters
-    const params = new URLSearchParams(searchParams.toString());
-    if (filter === "All") {
-      params.delete("filter"); // Remove filter param if "All" is selected
-    } else {
-      params.set("filter", filter);
-    }
-
-    router.push(`/gallery?${params.toString()}`, { scroll: false });
-  }, [searchParams]);
-
-  // When GalleryPage loads, check for filter query parameter
-  // Update filter state when URL changes
+  // Update filter state when URL changes; include ALL_FILTERS in deps.
   useEffect(() => {
     const filterFromUrl = searchParams.get("filter");
-    if (filterFromUrl && allFilters.includes(filterFromUrl)) {
+    if (filterFromUrl && ALL_FILTERS.includes(filterFromUrl)) {
       setSelectedFilter(filterFromUrl);
     } else {
       setSelectedFilter("All");
     }
   }, [searchParams]);
 
-  // Filter items based on selected filter
+  // Filter items based on selected filter.
   const filterItems = useCallback((): void => {
-    if (selectedFilter === allFilters[0]) {
+    if (selectedFilter === ALL_FILTERS[0]) {
       setData(Images);
     } else {
       const filteredImages = Images.filter(
@@ -92,14 +88,10 @@ const GalleryPageContent: FC = () => {
     const timer = setTimeout(() => {
       filterItems();
     }, 1000);
-
     return () => clearTimeout(timer);
   }, [filterItems]);
 
-  const activeButton = useCallback((value: string): void => {
-    setSelectedFilter(value);
-    setLoading(true);
-  }, []);
+  // (activeButton is defined but not used; removed it.)
 
   // Open modal with selected image
   const openModalWithImage = useCallback((imageUrl: string): void => {
@@ -108,11 +100,11 @@ const GalleryPageContent: FC = () => {
     console.log(imageUrl);
   }, []);
 
-  // Intersection observer for infinite scrolling
+  // Intersection observer for infinite scrolling.
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!sentinelRef.current) return;
-
+    const currentSentinel = sentinelRef.current; // Capture current ref.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -130,13 +122,9 @@ const GalleryPageContent: FC = () => {
         rootMargin: "200px",
       }
     );
-
-    observer.observe(sentinelRef.current);
-
+    observer.observe(currentSentinel);
     return () => {
-      if (sentinelRef.current) {
-        observer.unobserve(sentinelRef.current);
-      }
+      observer.unobserve(currentSentinel);
     };
   }, [data]);
 
@@ -148,7 +136,7 @@ const GalleryPageContent: FC = () => {
         modalImg={`https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${modalImg}).jpg`}
       />
       <div className="gallery-buttons flex items-center justify-start md:justify-center py-4 px-4 gap-2 overflow-x-scroll">
-        {allFilters.map((item) => (
+        {ALL_FILTERS.map((item) => (
           <Buttons
             onChange={() => updateFilter(item)}
             active={selectedFilter}
@@ -166,6 +154,7 @@ const GalleryPageContent: FC = () => {
             <ImgContainer
               key={item.id}
               photo={item}
+              classString="block h-[12rem] md:h-[30rem] w-[10rem] md:w-[17rem]"
               Click={() => {
                 console.log(item.id);
                 openModalWithImage(item.id);

@@ -1,4 +1,7 @@
-import React from 'react';
+"use client"
+
+import React from "react";
+import { motion } from "framer-motion";
 
 interface Package {
   title: string;
@@ -10,11 +13,7 @@ const packagesData: Package[] = [
   {
     title: "Basic Package",
     price: "$299",
-    features: [
-      "2-hour photo session",
-      "10 edited photos",
-      "Online gallery access",
-    ],
+    features: ["2-hour photo session", "10 edited photos", "Online gallery access"],
   },
   {
     title: "Standard Package",
@@ -53,20 +52,37 @@ const packagesData: Package[] = [
 
 const Packages: React.FC = () => {
   return (
-    <section className="packages-section py-16 px-6 md:px-20 lg:px-32 bg-black">
-      <h2 className="text-3xl font-bold text-center mb-10 text-indigo-500">Our Packages</h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {packagesData.map((pkg, index) => (
-          <div key={index} className="package-item bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-800">
-            <h3 className="text-xl font-semibold mb-4 text-white">{pkg.title}</h3>
-            <p className="text-2xl font-bold text-amber-400 mb-4">{pkg.price}</p>
-            <ul className="text-gray-400 mb-4">
-              {pkg.features.map((feature, i) => (
-                <li key={i} className="mb-2">• {feature}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <section className="py-16 bg-gradient-to-br from-gray-800 via-black to-gray-900">
+      <div className="container mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-bold mb-10 text-center text-indigo-500"
+        >
+          Our Packages
+        </motion.h2>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {packagesData.map((pkg, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white/20 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-700 transform transition duration-300 hover:scale-105"
+            >
+              <h3 className="text-xl font-semibold text-white mb-2">{pkg.title}</h3>
+              <p className="text-2xl font-bold text-amber-400 mb-2">{pkg.price}</p>
+              <ul className="text-gray-300 text-sm">
+                {pkg.features.map((feature, i) => (
+                  <li key={i} className="mb-1">
+                    • {feature}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

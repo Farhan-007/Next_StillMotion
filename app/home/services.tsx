@@ -1,6 +1,6 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface Service {
@@ -14,7 +14,6 @@ function getRandom(min: number, max: number): number {
 }
 
 const Services: React.FC = () => {
-  // Start with an empty array to ensure SSR and client render match.
   const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const Services: React.FC = () => {
       {
         title: "Portrait Photography",
         description:
-          "Capture your personality in stunning portraits with our expert photography services.",
+          "Capture your personality with stunning portraits that tell your unique story.",
         image: `https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${getRandom(
           37,
           72
@@ -31,7 +30,7 @@ const Services: React.FC = () => {
       {
         title: "Event Photography",
         description:
-          "We cover all kinds of events, providing you with high-quality photos that capture every moment.",
+          "Immortalize every special moment with crisp, clear images that last a lifetime.",
         image: `https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${getRandom(
           225,
           273
@@ -40,7 +39,7 @@ const Services: React.FC = () => {
       {
         title: "Model Photography",
         description:
-          "Make your products shine with our professional photography that highlights every detail.",
+          "Showcase your style with professional shoots that exude confidence.",
         image: `https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${getRandom(
           0,
           36
@@ -49,44 +48,52 @@ const Services: React.FC = () => {
       {
         title: "Wedding Photography",
         description:
-          "Relive your special day with beautifully captured wedding moments that last a lifetime.",
+          "Relive your magical day with beautifully captured wedding memories.",
         image: `https://ik.imagekit.io/Farhan007/StillMotion-ImageServer/(${getRandom(
           274,
           296
         )}).jpg`,
       },
     ];
-
-    // Update the services state once the component mounts.
     setServices(servicesData);
   }, []);
 
   return (
-    <section className="py-16 px-6 md:px-20 lg:px-32 bg-black">
-      <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10 text-white">
-        Our Services
-      </h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-[#07110f] p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-800"
-          >
-            {service.image && (
-              <Image
-                src={service.image}
-                alt={service.title}
-                width={360}
-                height={256}
-                className="w-full h-40 object-cover object-[center_10%] rounded-t-lg mb-4"
-              />
-            )}
-            <h3 className="text-xl font-semibold mb-4 text-white">
-              {service.title}
-            </h3>
-            <p className="text-gray-400">{service.description}</p>
-          </div>
-        ))}
+    <section className="py-16 bg-gradient-to-br from-gray-800 via-black to-gray-900">
+      <div className="container mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl font-bold text-center text-white mb-10"
+        >
+          Our Services
+        </motion.h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-700 transform transition duration-300 hover:scale-105"
+            >
+              <div className="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {service.title}
+              </h3>
+              <p className="text-gray-300 text-sm">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

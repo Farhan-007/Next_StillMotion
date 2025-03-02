@@ -1,7 +1,6 @@
-"use client"
-
-import React, { useState } from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -10,56 +9,74 @@ const Navbar: React.FC = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="navbar border-b border-[#333333] w-full fixed top-0 left-0 z-20 py-2 md:px-20 lg:px-32 bg-[#000000]">
-      <div className="flex items-center justify-between w-full p-4 py-1 md:py-4 rounded-2xl text-white">
-        {/* Mobile Menu */}
-        <div className="navbar-start md:hidden relative">
-          <button onClick={toggleMenu} className="btn pl-0 btn-ghost md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-            </svg>
-          </button>
-          {isMenuOpen && (
-            <ul className="menu menu-lg absolute bg-base-100 rounded-box z-[1] mt-3 w-40 p-0 shadow">
-              <li onClick={closeMenu}>
+    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl bg-white/10 backdrop-blur-md shadow-xl rounded-full border border-white/20">
+      <div className="px-4 md:px-8 lg:px-16">
+        <div className="flex items-center justify-between py-2 md:py-4">
+          {/* Mobile Menu */}
+          <div className="relative md:hidden">
+            <button onClick={toggleMenu} className="p-2 focus:outline-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+            {isMenuOpen && (
+              <ul className="absolute top-full left-0 mt-2 w-40 text-black bg-white/50 backdrop-blur-sm rounded-lg shadow-md p-2">
+                <li
+                  className="p-2 hover:bg-white/30 rounded cursor-pointer"
+                  onClick={closeMenu}
+                >
+                  <Link href="/">Home</Link>
+                </li>
+                <li
+                  className="p-2 hover:bg-white/30 rounded cursor-pointer"
+                  onClick={closeMenu}
+                >
+                  <Link href="/about">About</Link>
+                </li>
+                <li
+                  className="p-2 hover:bg-white/30 rounded cursor-pointer"
+                  onClick={closeMenu}
+                >
+                  <Link href="/gallery">Gallery</Link>
+                </li>
+              </ul>
+            )}
+          </div>
+
+          {/* Logo */}
+          <div>
+            <Link href="/">
+              <p className="flex items-center space-x-2">
+                <span className="text-white text-2xl font-bold">SMP</span>
+              </p>
+            </Link>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:block">
+            <ul className="flex space-x-8">
+              <li className="text-white hover:text-gray-300">
                 <Link href="/">Home</Link>
               </li>
-              <li onClick={closeMenu}>
+              <li className="text-white hover:text-gray-300">
                 <Link href="/about">About</Link>
               </li>
-              <li onClick={closeMenu}>
+              <li className="text-white hover:text-gray-300">
                 <Link href="/gallery">Gallery</Link>
               </li>
             </ul>
-          )}
-        </div>
-
-        {/* Logo */}
-        <div>
-          <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <span className="self-center md:text-2xl text-xl font-bold whitespace-nowrap">SMP</span>
-          </Link>
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden w-full md:block md:w-auto">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/gallery">Gallery</Link>
-            </li>
-          </ul>
+          </div>
         </div>
       </div>
     </nav>

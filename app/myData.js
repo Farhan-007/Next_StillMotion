@@ -105,6 +105,7 @@ export const myTeam = [
         title: "Mohammed Fazil",
         tags: ["digital marketing expert",],
         social: ["insta", "fb"],
+        img: ""
     },
     {
         id: 6,
